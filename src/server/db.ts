@@ -3,6 +3,7 @@ import path from "path";
 import crypto from "crypto";
 import { User, Product, Category, WebsiteSettings, PurchaseRequest, ContactMessage, NewsletterSubscriber } from "../types.js";
 
+
 // Ensure data folder exists
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -76,7 +77,7 @@ function getInitialDB(): DatabaseSchema {
         passwordHash: "8333a0555ae38ab9890b632d8dcd9bac2e55050a4cde865b926d79e5553d48ac",
       }
     ],
-    products: [], // Zero products initially
+    products: [],
     categories: DEFAULT_CATEGORIES,
     settings: DEFAULT_SETTINGS,
     purchaseRequests: [],
@@ -88,18 +89,32 @@ function getInitialDB(): DatabaseSchema {
 
 export class DB {
   private static load(): DatabaseSchema {
-    try {
-      if (!fs.existsSync(DB_PATH)) {
-        this.save(getInitialDB());
-      }
-
-      const data = fs.readFileSync(DB_PATH, "utf-8");
-      return JSON.parse(data);
-
-    } catch (e) {
-      console.error("DB LOAD ERROR:", e);
-      throw e;
+  try {
+    if (!fs.existsSync(DB_PATH)) {
+      this.save(getInitialDB());
     }
+
+    console.log("========== DB DEBUG ==========");
+    console.log("Working Directory:", process.cwd());
+    console.log("DB Path:", DB_PATH);
+    console.log("DB Exists:", fs.existsSync(DB_PATH));
+
+    if (fs.existsSync(DB_PATH)) {
+      console.log("DB Size:", fs.statSync(DB_PATH).size);
+    }
+
+    const data = fs.readFileSync(DB_PATH, "utf-8");
+
+    console.log("Products:", JSON.parse(data).products.length);
+    console.log("==============================");
+
+    return JSON.parse(data);
+
+  } catch (e) {
+    console.error("DB LOAD ERROR:", e);
+    throw e;
+  }
+}
   }
 
 
