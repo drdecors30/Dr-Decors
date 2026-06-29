@@ -4,10 +4,7 @@ import crypto from "crypto";
 import { User, Product, Category, WebsiteSettings, PurchaseRequest, ContactMessage, NewsletterSubscriber } from "../types.js";
 
 // Ensure data folder exists
-const DATA_DIR =
-  process.env.RENDER
-    ? "/tmp/data"
-    : path.join(process.cwd(), "data");
+const DATA_DIR = path.join(process.cwd(), "data");
 
 const DB_PATH = path.join(DATA_DIR, "db.json");
 
