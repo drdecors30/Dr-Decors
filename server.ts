@@ -1,11 +1,33 @@
 import express, { Request, Response, NextFunction } from "express";
+import cors from "cors";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import { DB } from "./src/server/db.js";
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  app.use(
+  cors({
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "https://dr-decors.vercel.app",
+        "https://dr-decors-4qaaswrmn-dr-decors.vercel.app",
+      ];
+
+      // Allow requests without an Origin header (e.g. Postman, server-to-server)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
+  const PORT = Number(process.env.PORT) || 3000;
 
   // Midddleware to parse JSON & URLEncoded bodies
   app.use(express.json({ limit: "20mb" }));
