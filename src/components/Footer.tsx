@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useApp } from "../context/AppContext.js";
 import { Send, Phone, MapPin, Mail, Instagram, Facebook } from "lucide-react";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 export const Footer: React.FC = () => {
   const { settings, addToast } = useApp();
   const [email, setEmail] = useState("");
@@ -14,7 +16,7 @@ export const Footer: React.FC = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/newsletter/subscribe", {
+      const res = await fetch(`${API_URL}/api/newsletter/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

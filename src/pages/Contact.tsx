@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useApp } from "../context/AppContext.js";
 import { Mail, Phone, MapPin, Send, MessageSquare, Clock, Globe, ArrowRight } from "lucide-react";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 export const Contact: React.FC = () => {
   const { settings, addToast } = useApp();
   
@@ -17,7 +19,7 @@ export const Contact: React.FC = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, message })

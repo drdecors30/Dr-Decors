@@ -3,6 +3,8 @@ import { useApp } from "../context/AppContext.js";
 import { Link, useNavigate } from "react-router-dom";
 import { User, LogIn, Heart, LogOut, MapPin, Search, History, ShoppingCart, UserCheck, AlertCircle, KeyRound, Sparkles } from "lucide-react";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 export const UserPortal: React.FC = () => {
   const {
     user,
@@ -51,7 +53,7 @@ export const UserPortal: React.FC = () => {
       // Load their WhatsApp purchase logs if they are admin or just query all logs and filter
       if (token) {
         setHistoryLoading(true);
-        fetch("/api/purchase-requests", {
+        fetch(`${API_URL}/api/purchase-requests`, {
           headers: { Authorization: `Bearer ${token}` }
         })
           .then(res => {
@@ -74,7 +76,7 @@ export const UserPortal: React.FC = () => {
     if (!loginEmail || !loginPassword) return;
 
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: loginEmail, password: loginPassword })
@@ -97,7 +99,7 @@ export const UserPortal: React.FC = () => {
     if (!regName || !regEmail || !regPassword) return;
 
     try {
-      const res = await fetch("/api/auth/register", {
+      const res = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: regName, email: regEmail, password: regPassword })

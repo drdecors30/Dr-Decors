@@ -7,6 +7,8 @@ import {
   UploadCloud, FileSpreadsheet, EyeOff, Check, X, AlertCircle, Save, Star
 } from "lucide-react";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 const convertGoogleDriveUrl = (url: string) => {
   if (!url) return "";
 
@@ -210,11 +212,11 @@ export const Admin: React.FC = () => {
       const headers = { Authorization: `Bearer ${token}` };
       
       const [resStats, resPrd, resCat, resUsers, resMsg] = await Promise.all([
-        fetch("/api/analytics", { headers }),
-        fetch("/api/products", { headers }),
-        fetch("/api/categories", { headers }),
-        fetch("/api/users", { headers }),
-        fetch("/api/contact-messages", { headers })
+        fetch(`${API_URL}/api/analytics`, { headers }),
+        fetch(`${API_URL}/api/products`, { headers }),
+        fetch(`${API_URL}/api/categories`, { headers }),
+        fetch(`${API_URL}/api/users`, { headers }),
+        fetch(`${API_URL}/api/contact-messages`, { headers })
       ]);
 
       if (resStats.ok) setStats(await resStats.json());
@@ -385,7 +387,7 @@ export const Admin: React.FC = () => {
     delete payload.purchaseClicks;
 
     try {
-      const res = await fetch("/api/products", {
+      const res = await fetch(`${API_URL}/api/products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -435,7 +437,7 @@ export const Admin: React.FC = () => {
   // Bulk Seeding & Clearing operations
   const handleBulkSeedImport = async () => {
     try {
-      const res = await fetch("/api/products/bulk-upload", {
+      const res = await fetch(`${API_URL}/api/products/bulk-upload`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -466,7 +468,7 @@ export const Admin: React.FC = () => {
       message: `Are you sure you want to permanently delete the ${selectedProductIds.length} selected products? This action is irreversible.`,
       onConfirm: async () => {
         try {
-          const res = await fetch("/api/products/bulk-delete", {
+          const res = await fetch(`${API_URL}/api/products/bulk-delete`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -617,7 +619,7 @@ export const Admin: React.FC = () => {
   const handleSaveSettings = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch("/api/settings", {
+      const res = await fetch(`${API_URL}/api/settings`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -6,6 +6,8 @@ import { ProductCard } from "../components/ProductCard.js";
 import { Sparkles, ArrowRight, Star, Heart, Shield, RefreshCw, Layers, Send } from "lucide-react";
 import { motion } from "motion/react";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 export const Home: React.FC = () => {
   const { products, categories, settings, addToast } = useApp();
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ export const Home: React.FC = () => {
     if (!email) return;
     setNewsLoading(true);
     try {
-      const res = await fetch("/api/newsletter/subscribe", {
+      const res = await fetch(`${API_URL}/api/newsletter/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })

@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { User, Product, Category, WebsiteSettings } from "../types.js";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 interface Toast {
   id: string;
   message: string;
@@ -66,7 +67,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       
       // Post visitor count (analytics, non-blocking)
       try {
-        await fetch("/api/visitors", { method: "POST" });
+        await fetch(`${API_URL}/api/visitors`, { method: "POST" });
       } catch (e) {}
 
       await Promise.all([
@@ -78,7 +79,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       // Check current user token
       if (token) {
         try {
-          const res = await fetch("/api/auth/me", {
+          const res = await fetch(`${API_URL}/api/auth/me`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           if (res.ok) {
@@ -115,7 +116,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const refreshSettings = async () => {
     try {
-      const res = await fetch("/api/settings");
+      const res = await fetch(`${API_URL}/api/settings`);
       if (res.ok) {
         const data = await res.json();
         setSettings(data);
@@ -131,7 +132,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (token) {
         headers["Authorization"] = `Bearer ${token}`;
       }
-      const res = await fetch("/api/products", { headers });
+      const res = await fetch(`${API_URL}/api/products`, { headers });
       if (res.ok) {
         const data = await res.json();
         setProducts(data);
@@ -143,7 +144,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const refreshCategories = async () => {
     try {
-      const res = await fetch("/api/categories");
+      const res = await fetch(`${API_URL}/api/categories`);
       if (res.ok) {
         const data = await res.json();
         setCategories(data);
@@ -174,7 +175,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const updateProfile = async (updated: Partial<User>) => {
     if (!token) return;
     try {
-      const res = await fetch("/api/users/profile", {
+      const res = await fetch(`${API_URL}/api/users/profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
