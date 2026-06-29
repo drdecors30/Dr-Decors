@@ -8,22 +8,7 @@ async function startServer() {
   const app = express();
   app.use(
   cors({
-    origin: (origin, callback) => {
-      const allowedOrigins = [
-        "http://localhost:5173",
-        "https://dr-decors.vercel.app",
-        "https://dr-decors-4qaaswrmn-dr-decors.vercel.app",
-      ];
-
-      // Allow requests without an Origin header (e.g. Postman, server-to-server)
-      if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-
-      return callback(new Error("Not allowed by CORS"));
-    },
+    origin: true,
     credentials: true,
   })
 );
