@@ -1,0 +1,6 @@
+{
+  "name": "DEE-Decors",
+  "description": "Premium handcrafted home décor e-commerce website with a secure Admin Dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

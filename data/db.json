@@ -1,0 +1,260 @@
+{
+  "users": [
+    {
+      "id": "admin-1",
+      "email": "drdecors30@gmail.com",
+      "name": "Raghav",
+      "isAdmin": true,
+      "isSuspended": false,
+      "wishlist": [],
+      "searchHistory": [],
+      "createdAt": "2026-06-28T19:42:43.939Z",
+      "passwordHash": "8333a0555ae38ab9890b632d8dcd9bac2e55050a4cde865b926d79e5553d48ac",
+      "savedAddress": "your address"
+    },
+    {
+      "id": "usr-f3d57c1f460e",
+      "name": "Bhuvan",
+      "email": "fr848808@gmail",
+      "isAdmin": false,
+      "isSuspended": false,
+      "wishlist": [],
+      "searchHistory": [
+        "wall clock"
+      ],
+      "createdAt": "2026-06-29T04:46:32.387Z",
+      "passwordHash": "086f6467bcb6a87e965b086f07c3ea28013187678f2693a8e82c9123834e801b"
+    },
+    {
+      "id": "usr-4794b2c7dfbe",
+      "name": "Bhuvana",
+      "email": "fr848808@gmail.com",
+      "isAdmin": false,
+      "isSuspended": false,
+      "wishlist": [
+        "prd-d0436b532a53"
+      ],
+      "searchHistory": [],
+      "createdAt": "2026-06-29T08:56:53.648Z",
+      "passwordHash": "dba86231d0f501e638742ef54f3f41eed7e14e69c21a190ef310c247ea861ea4"
+    }
+  ],
+  "products": [
+    {
+      "name": "Wooden clocks",
+      "shortDescription": "Wooden Clock",
+      "fullDescription": "Hand Crafted Wooden Clock",
+      "price": 2000,
+      "discountPrice": 1499,
+      "category": "Wall Clocks",
+      "subcategory": "",
+      "sku": "DEE-9427",
+      "availableStock": 4,
+      "images": [
+        "https://drive.google.com/thumbnail?id=1GZXkUHRQYPg3iqJxBjUm_c3aHmlZFsvI&sz=w1000"
+      ],
+      "primaryImage": "https://drive.google.com/thumbnail?id=1GZXkUHRQYPg3iqJxBjUm_c3aHmlZFsvI&sz=w1000",
+      "materialsUsed": [],
+      "dimensions": "N/A",
+      "weight": "N/A",
+      "color": "N/A",
+      "style": "N/A",
+      "tags": [],
+      "brand": "DEE-Decors",
+      "featured": true,
+      "trending": false,
+      "newArrival": false,
+      "bestSeller": false,
+      "status": "published",
+      "id": "prd-0ec789ec7627",
+      "createdDate": "2026-06-28T22:45:06.022Z",
+      "updatedDate": "2026-06-28T22:45:06.022Z",
+      "views": 2,
+      "purchaseClicks": 1
+    },
+    {
+      "name": "Wooden clocks with resin ",
+      "shortDescription": "Resin Clock",
+      "fullDescription": "A beautiful clock made by resin",
+      "price": 2499,
+      "discountPrice": 1999,
+      "category": "Wall Clocks",
+      "subcategory": "",
+      "sku": "DEE-2813",
+      "availableStock": 1,
+      "images": [
+        "https://drive.google.com/thumbnail?id=1rgFKI9kT8Ic1tzZxiRETcCCW-X5Q5gQ3&sz=w1000"
+      ],
+      "primaryImage": "https://drive.google.com/thumbnail?id=1rgFKI9kT8Ic1tzZxiRETcCCW-X5Q5gQ3&sz=w1000",
+      "materialsUsed": [],
+      "dimensions": "N/A",
+      "weight": "N/A",
+      "color": "N/A",
+      "style": "N/A",
+      "tags": [],
+      "brand": "DEE-Decors",
+      "featured": false,
+      "trending": false,
+      "newArrival": false,
+      "bestSeller": true,
+      "status": "published",
+      "id": "prd-0882489d09f6",
+      "createdDate": "2026-06-28T22:47:14.244Z",
+      "updatedDate": "2026-06-28T22:47:14.244Z",
+      "views": 4,
+      "purchaseClicks": 2
+    },
+    {
+      "name": "Light moon frame",
+      "shortDescription": "Light Moon Frame",
+      "fullDescription": "A wall decor looks like a moon view",
+      "price": 5999,
+      "discountPrice": 4299,
+      "category": "Wall Art",
+      "subcategory": "",
+      "sku": "DEE-6417",
+      "availableStock": 1,
+      "images": [
+        "https://drive.google.com/thumbnail?id=1I5oi1IYPoLZwIpdsKA2ThlxGYusLPLdi&sz=w1000"
+      ],
+      "primaryImage": "https://drive.google.com/thumbnail?id=1I5oi1IYPoLZwIpdsKA2ThlxGYusLPLdi&sz=w1000",
+      "materialsUsed": [],
+      "dimensions": "N/A",
+      "weight": "N/A",
+      "color": "N/A",
+      "style": "N/A",
+      "tags": [],
+      "brand": "DEE-Decors",
+      "featured": false,
+      "trending": true,
+      "newArrival": false,
+      "bestSeller": false,
+      "status": "published",
+      "id": "prd-d0436b532a53",
+      "createdDate": "2026-06-28T22:49:29.249Z",
+      "updatedDate": "2026-06-28T22:49:29.249Z",
+      "views": 2,
+      "purchaseClicks": 0
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-2",
+      "name": "Wall Clocks",
+      "description": "Elegant handcrafted functional timepieces",
+      "order": 1,
+      "image": "https://drive.google.com/thumbnail?id=1HZZoPbAwdxCjibiZa5_zDF4KWU6XUMFh&sz=w1000"
+    },
+    {
+      "id": "cat-3",
+      "name": "Resin Preservation",
+      "description": "Beautiful custom glass-like resin decor pieces",
+      "order": 3,
+      "image": "https://drive.google.com/thumbnail?id=1XSNrC-QFlZ1GaicplxDvfVGiOeyrYTFu&sz=w1000"
+    },
+    {
+      "id": "cat-4",
+      "name": "Photo Frames",
+      "description": "Preserve your memories in customized frame styles",
+      "order": 4,
+      "image": "https://drive.google.com/thumbnail?id=1LEnFHrpxgat8LqUGyixiP8cvgE7D4ytf&sz=w1000"
+    },
+    {
+      "id": "cat-5",
+      "name": "Thread Portrait",
+      "description": "Intricate string and thread masterpieces",
+      "order": 5,
+      "image": "https://drive.google.com/thumbnail?id=1msksS5NVAB8rkZhaXC2Szp3r2bz9eVxC&sz=w1000"
+    },
+    {
+      "name": "Wall Art",
+      "description": "",
+      "image": "https://drive.google.com/thumbnail?id=1xMiXZqbnSoaYRbTdCOrXqe0eZC9dEuE1&sz=w1000",
+      "banner": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200",
+      "order": 2,
+      "id": "cat-381e42e04863"
+    }
+  ],
+  "settings": {
+    "websiteName": "Dr.Decors",
+    "logo": "https://drive.google.com/thumbnail?id=1BFrKoEcGXR7II_bXcl5osoxkgc7omTUC&sz=w1000",
+    "themeColor": "amber",
+    "whatsAppNumber": "+91 8310881773",
+    "businessAddress": "Near, Udbhava Ganapathi Temple Rd, GundeGowdana Koppalu, Hassan, Karnataka 573201, India",
+    "contactEmail": "drdecors30@gmail.com",
+    "facebookUrl": "https://facebook.com/drdecors",
+    "instagramUrl": "https://instagram.com/drdecors",
+    "seoDescription": "Premium handcrafted and customized home decor products - Dr.Decors.",
+    "seoKeywords": "home decor, customized gifts, resin art, wall clocks, thread art, paintings"
+  },
+  "purchaseRequests": [
+    {
+      "productId": "prd-29610fc39fa5",
+      "productName": "Wooden Clock",
+      "productPrice": 4500,
+      "userName": "DEE Admin",
+      "userEmail": "Faisal@gmail.com",
+      "whatsAppMessage": "Hello Dr.Decors,\n\nI am interested in purchasing this product.\n\nProduct:\nWooden Clock\n\nPrice:\n₹4,500\n\nProduct Link:\nhttp://localhost:3000/product/prd-29610fc39fa5\n\nProduct Image:\nhttps://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=600\n\nPlease let me know the availability.\n\nThank you.",
+      "id": "req-75be14ecd392",
+      "clickedAt": "2026-06-28T19:55:11.066Z"
+    },
+    {
+      "productId": "prd-c6fb105ec936",
+      "productName": "Wooden Clock with Resin",
+      "productPrice": 5500,
+      "userName": "Admin Name",
+      "userEmail": "Faisal@gmail.com",
+      "whatsAppMessage": "Hello Dr.Decors,\n\nI am interested in purchasing this product.\n\nProduct:\nWooden Clock with Resin\n\nPrice:\n₹5,500\n\nProduct Link:\nhttp://localhost:3000/product/prd-c6fb105ec936\n\nProduct Image:\nimage link\n\nPlease let me know the availability.\n\nThank you.",
+      "id": "req-dc342b00b45f",
+      "clickedAt": "2026-06-28T19:59:28.232Z"
+    },
+    {
+      "productId": "prd-0882489d09f6",
+      "productName": "Wooden clocks with resin ",
+      "productPrice": 1999,
+      "userName": "Admin Name",
+      "userEmail": "Faisal@gmail.com",
+      "whatsAppMessage": "Hello Dr.Decors,\n\nI am interested in purchasing this product.\n\nProduct:\nWooden clocks with resin \n\nPrice:\n₹1,999\n\nProduct Link:\nhttp://localhost:3000/product/prd-0882489d09f6\n\nProduct Image:\nhttps://drive.google.com/thumbnail?id=1rgFKI9kT8Ic1tzZxiRETcCCW-X5Q5gQ3&sz=w1000\n\nPlease let me know the availability.\n\nThank you.",
+      "id": "req-c72e0ec12f38",
+      "clickedAt": "2026-06-28T22:53:20.457Z"
+    },
+    {
+      "productId": "prd-0ec789ec7627",
+      "productName": "Wooden clocks",
+      "productPrice": 1499,
+      "userName": "Bhuvan",
+      "userEmail": "fr848808@gmail",
+      "whatsAppMessage": "Hello Dr.Decors,\n\nI am interested in purchasing this product.\n\nProduct:\nWooden clocks\n\nPrice:\n₹1,499\n\nProduct Link:\nhttp://localhost:3000/product/prd-0ec789ec7627\n\nProduct Image:\nhttps://drive.google.com/thumbnail?id=1GZXkUHRQYPg3iqJxBjUm_c3aHmlZFsvI&sz=w1000\n\nPlease let me know the availability.\n\nThank you.",
+      "id": "req-a76e86753882",
+      "clickedAt": "2026-06-29T04:47:19.958Z"
+    },
+    {
+      "productId": "prd-0882489d09f6",
+      "productName": "Wooden clocks with resin ",
+      "productPrice": 1999,
+      "userName": "Guest Customer",
+      "userEmail": "guest@deedecors.com",
+      "whatsAppMessage": "Hello Dr.Decors,\n\nI am interested in purchasing this product.\n\nProduct:\nWooden clocks with resin \n\nPrice:\n₹1,999\n\nProduct Link:\nhttp://localhost:3000/product/prd-0882489d09f6\n\nProduct Image:\nhttps://drive.google.com/thumbnail?id=1rgFKI9kT8Ic1tzZxiRETcCCW-X5Q5gQ3&sz=w1000\n\nPlease let me know the availability.\n\nThank you.",
+      "id": "req-88cd5c71eb7b",
+      "clickedAt": "2026-06-29T08:55:05.147Z"
+    }
+  ],
+  "contactMessages": [
+    {
+      "id": "msg-0491cd8f6e44",
+      "name": "faisal",
+      "email": "fardinsaif58@gmail.com",
+      "message": "dfewfw",
+      "sentAt": "2026-06-29T04:42:51.832Z",
+      "status": "read"
+    }
+  ],
+  "newsletterSubscribers": [
+    {
+      "id": "sub-ff5189466090",
+      "email": "fr848808@gmail.com",
+      "subscribedAt": "2026-06-29T04:48:41.577Z"
+    }
+  ],
+  "visitorsCount": 233
+}

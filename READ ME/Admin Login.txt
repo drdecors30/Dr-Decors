@@ -1,0 +1,6 @@
+Administrator Login
+
+Use the following default credentials to access the admin panel:
+
+Email : drdecors30@gmail.com
+Password : Dee_decors
