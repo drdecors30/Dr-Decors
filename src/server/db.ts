@@ -4,7 +4,11 @@ import crypto from "crypto";
 import { User, Product, Category, WebsiteSettings, PurchaseRequest, ContactMessage, NewsletterSubscriber } from "../types.js";
 
 // Ensure data folder exists
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR =
+  process.env.RENDER
+    ? "/tmp/data"
+    : path.join(process.cwd(), "data");
+
 const DB_PATH = path.join(DATA_DIR, "db.json");
 
 if (!fs.existsSync(DATA_DIR)) {
@@ -91,17 +95,33 @@ export class DB {
       if (!fs.existsSync(DB_PATH)) {
         this.save(getInitialDB());
       }
+
       const data = fs.readFileSync(DB_PATH, "utf-8");
       return JSON.parse(data);
+
     } catch (e) {
-      console.error("Error loading DB, resetting to default:", e);
-      const init = getInitialDB();
-      this.save(init);
-      return init;
+      console.error("DB LOAD ERROR:", e);
+      throw e;
     }
   }
+}
 
   private static save(data: DatabaseSchema): void {
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+
+    fs.writeFileSync(
+      DB_PATH,
+      JSON.stringify(data, null, 2),
+      "utf8"
+    );
+  } catch (e) {
+    console.error("DB SAVE ERROR:", e);
+    throw e;
+  }
+}
     try {
       fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), "utf-8");
     } catch (e) {
