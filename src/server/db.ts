@@ -104,7 +104,7 @@ export class DB {
       throw e;
     }
   }
-}
+
 
   private static save(data: DatabaseSchema): void {
   try {
@@ -122,12 +122,6 @@ export class DB {
     throw e;
   }
 }
-    try {
-      fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), "utf-8");
-    } catch (e) {
-      console.error("Error saving DB:", e);
-    }
-  }
 
   // Auth & User operations
   public static getUsers() {
