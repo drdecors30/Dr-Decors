@@ -3,10 +3,8 @@ import path from "path";
 import crypto from "crypto";
 import { User, Product, Category, WebsiteSettings, PurchaseRequest, ContactMessage, NewsletterSubscriber } from "../types.js";
 
-
 // Ensure data folder exists
 const DATA_DIR = path.join(process.cwd(), "data");
-
 const DB_PATH = path.join(DATA_DIR, "db.json");
 
 if (!fs.existsSync(DATA_DIR)) {
@@ -67,17 +65,17 @@ function getInitialDB(): DatabaseSchema {
     users: [
       {
         id: "admin-1",
-        email: "drdecors30@gmail.com",
-        name: "Raghav",
+        email: "faisal@gmail.com",
+        name: "DEE Admin",
         isAdmin: true,
         isSuspended: false,
         wishlist: [],
         searchHistory: [],
         createdAt: new Date().toISOString(),
-        passwordHash: "8333a0555ae38ab9890b632d8dcd9bac2e55050a4cde865b926d79e5553d48ac",
+        passwordHash: DEFAULT_ADMIN_HASH,
       }
     ],
-    products: [],
+    products: [], // Zero products initially
     categories: DEFAULT_CATEGORIES,
     settings: DEFAULT_SETTINGS,
     purchaseRequests: [],
@@ -89,51 +87,27 @@ function getInitialDB(): DatabaseSchema {
 
 export class DB {
   private static load(): DatabaseSchema {
-  try {
-    if (!fs.existsSync(DB_PATH)) {
-      this.save(getInitialDB());
+    try {
+      if (!fs.existsSync(DB_PATH)) {
+        this.save(getInitialDB());
+      }
+      const data = fs.readFileSync(DB_PATH, "utf-8");
+      return JSON.parse(data);
+    } catch (e) {
+      console.error("Error loading DB, resetting to default:", e);
+      const init = getInitialDB();
+      this.save(init);
+      return init;
     }
-
-    console.log("========== DB DEBUG ==========");
-    console.log("Working Directory:", process.cwd());
-    console.log("DB Path:", DB_PATH);
-    console.log("DB Exists:", fs.existsSync(DB_PATH));
-
-    if (fs.existsSync(DB_PATH)) {
-      console.log("DB Size:", fs.statSync(DB_PATH).size);
-    }
-
-    const data = fs.readFileSync(DB_PATH, "utf-8");
-
-    console.log("Products:", JSON.parse(data).products.length);
-    console.log("==============================");
-
-    return JSON.parse(data);
-
-  } catch (e) {
-    console.error("DB LOAD ERROR:", e);
-    throw e;
   }
-}
-  }
-
 
   private static save(data: DatabaseSchema): void {
-  try {
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, { recursive: true });
+    try {
+      fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), "utf-8");
+    } catch (e) {
+      console.error("Error saving DB:", e);
     }
-
-    fs.writeFileSync(
-      DB_PATH,
-      JSON.stringify(data, null, 2),
-      "utf8"
-    );
-  } catch (e) {
-    console.error("DB SAVE ERROR:", e);
-    throw e;
   }
-}
 
   // Auth & User operations
   public static getUsers() {
